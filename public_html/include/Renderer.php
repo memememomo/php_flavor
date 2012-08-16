@@ -4,7 +4,7 @@ require_once(SMARTY_DIR.'Smarty.class.php');
 
 class Renderer {
 
-    public $smarty_dir = null;
+    public $tmpl_dir = null;
 
     public function render_partial($data=null, $templatefile=null, $tmpldir=null) {
 
@@ -14,7 +14,7 @@ class Renderer {
             $tmpldir = $this->smarty_dir;
         }
 
-        if ( !$tmpldir ) { $tmpldir = $this->smarty_dir; }
+        if ( !$tmpldir ) { $tmpldir = $this->tmpl_dir; }
         $smarty->template_dir = $tmpldir."templates/";
         $smarty->compile_dir  = $tmpldir."templates_c/";
         $smarty->config_dir   = $tmpldir."configs/";
