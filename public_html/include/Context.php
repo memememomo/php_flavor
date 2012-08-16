@@ -207,7 +207,7 @@ class Context {
      *
      * @return array HTTPリクエストの引数を配列に格納したもの
      */
-    public function param() {
+    public function param($k = null) {
         $FORM = array();
         foreach ($_POST as $key => $value) {
             $FORM[$key] = $value;
@@ -215,6 +215,12 @@ class Context {
         foreach ($_GET as $key => $value) {
             $FORM[$key] = $value;
         }
-        return $FORM;
+
+        if ($k) {
+            return $FORM[$k];
+        }
+        else {
+            return $FORM;
+        }
     }
 }
