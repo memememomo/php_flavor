@@ -194,7 +194,7 @@ class Context {
      * @param $url    リダイレクトするURL
 	 * @param $status ステータスコード
      */
-    public function redirect($url, $status = '302') {
+    public function redirect_to($url, $status = '302') {
         $to = $this->url_for($url, true, $this->req->isSsl());
 		header("Status: $status");
         header("Location: $to");

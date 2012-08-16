@@ -68,6 +68,21 @@ class DB {
         return $itr->next();
     }
 
+    public function insert($table, $values) {
+        list($sql, $binds) = $this->builder->insert($table, $values);
+        return $this->db_query_params($sql, $binds);
+    }
+
+    public function update($table, $sets, $where) {
+        list($sql, $binds) = $this->builder->update($table, $sets, $where);
+        return $this->db_query_params($sql, $binds);
+    }
+
+    public function delete($table, $where) {
+        list($sql, $binds) = $this->builder->delete($table, $where);
+        return $this->db_query_params($sql, $binds);
+    }
+
     public function db_query_params($sql, $binds  = array()) {
         try {
             $sth = $this->dbh->prepare($sql);
