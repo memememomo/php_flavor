@@ -71,6 +71,24 @@ class Context {
     }
 
     /**
+     * Modelを生成
+     *
+     * @param strint $name Model名
+     */
+    public function _m($name) {
+        $filename = $name . '.php';
+        $this->require_model($filename);
+
+        $classname = 'Model_' . $name;
+        $Model = new $classname();
+        $Model->c = $this;
+        $Model->db = $this->db;
+
+        return $Model;
+    }
+
+
+    /**
      * URLを生成
      *
      * @param string $path   パス

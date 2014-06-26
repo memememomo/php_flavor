@@ -23,7 +23,7 @@ class DB {
 
         $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $this->dbh->query("SET NAMES UTF8");
-        $this->dbh->setAttribute(PDO::ATTR_AUTOCOMMIT, false);
+        $this->dbh->setAttribute(PDO::ATTR_AUTOCOMMIT, true);
 
         $this->trans = new TransactionManager($this->dbh);
 

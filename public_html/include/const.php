@@ -51,5 +51,7 @@ function bootstrap() {
 
     $c->stash = array();
 
+    $c->model_dir = dirname(__FILE__).'/model';
+
     return $c;
 }
